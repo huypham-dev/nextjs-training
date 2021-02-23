@@ -1,12 +1,13 @@
-import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-const Header = () => {
+const Header = ({ navigation, logo }) => {
   return (
-    <header className="mx-auto max-w-xl py-20 text-center">
+    <header className="mx-auto max-w-xl py-10 text-center">
       <Link href="/">
         <a href="#" className="block text-2xl mb-12">
-          Company Name
+        <Image src={logo} width={150} height={150} />
         </a>
       </Link>
 
