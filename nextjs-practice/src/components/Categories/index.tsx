@@ -1,21 +1,12 @@
 import React from "react";
+import { CategoryType, CategoryHeadType } from "../../models";
 import CategoryItem from "./Item";
 
 type Props = {
-  data: DataType[];
-  prismicData: CategoryType;
+  data: CategoryType[];
+  prismicData: CategoryHeadType;
 };
 
-type DataType = {
-  id: number;
-  name: string;
-  image: string;
-};
-
-type CategoryType = {
-  heading: string;
-  description: string;
-};
 
 const Categories = ({ data, prismicData }: Props) => {
   const { heading, description } = prismicData;

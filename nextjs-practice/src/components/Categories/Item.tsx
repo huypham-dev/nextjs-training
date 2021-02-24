@@ -9,16 +9,17 @@ type Props = {
 
 const CategoryItem = ({ imageUrl, categoryName }: Props) => (
   <div className="w-1/3 p-2">
-    <Link href="#">
-      <a className="block mb-8 text-center">
-        <Image src={imageUrl} width={200} height={200} />
+    <Link href={`/blog/${categoryName}`}>
+      <a className="block mb-8 text-center hover:opacity-70">
+        <Image
+          className="rounded-full"
+          src={imageUrl}
+          width={200}
+          height={200}
+        />
       </a>
     </Link>
-    <Link href="#">
-      <a href="#" className="block text-xl text-center">
-        {categoryName}
-      </a>
-    </Link>
+    <p className="text-xl text-center">{categoryName.toUpperCase()}</p>
   </div>
 );
 

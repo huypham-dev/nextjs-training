@@ -1,6 +1,11 @@
 import React from "react";
+import { FooterDataType } from "../../models";
 
-const Footer = ({ data }) => (
+type Props = {
+  data: FooterDataType
+}
+
+const Footer = ({ data }: Props) => (
   <div className="-mx-6 bg-white px-6 py-12">
     <div className="mx-auto container text-gray-800 text-sm flex justify-between">
       <span>{data.leftText}</span>
