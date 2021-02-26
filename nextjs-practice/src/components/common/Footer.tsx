@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterDataType } from "../../models";
+import { FooterDataType } from "models";
 
 type Props = {
   data: FooterDataType

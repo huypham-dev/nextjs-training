@@ -1,19 +1,18 @@
 import React from "react";
 
-import Head from "next/head";
-import HeaderBlog from "../../components/HeaderBlog";
-import Articles from "../../components/Articles";
-import CategoriesWidget from "../../components/CategoriesWidget";
-import Layout from "../../components/common/Layout";
 import { GetStaticProps } from "next";
 import { Client } from "../../../prismic-configuration";
 import { RichText } from "prismic-reactjs";
-import {
-  CategoryType,
-  FooterDataType,
-  NavigationType,
-  PostType,
-} from "../../models";
+import { useRouter } from "next/router";
+
+// Components
+import Head from "next/head";
+import CategoryTitle from "components/CategoryTitle";
+import Articles from "components/Articles";
+import CategoriesWidget from "components/CategoriesWidget";
+import Layout from "components/common/Layout";
+import { CategoryType, FooterDataType, NavigationType, PostType } from "models";
+import { API } from "utils/api";
 
 type Props = {
   doc: any;
@@ -22,13 +21,13 @@ type Props = {
 };
 
 const Blog = ({ doc, posts, categories }: Props) => {
-  
-  const { data } = doc;
+  const { data } = doc || {};
   const { logo, footer_left_text, footer_right_text, navigation } = data;
   const prismicFooter: FooterDataType = {
     leftText: RichText.asText(footer_left_text),
     rightText: RichText.asText(footer_right_text),
   };
+  const { query } = useRouter();
 
   return (
     <Layout
@@ -40,7 +39,7 @@ const Blog = ({ doc, posts, categories }: Props) => {
         <Head>
           <title>Blog</title>
         </Head>
-        <HeaderBlog />
+        <CategoryTitle category={query.category as string} />
         <div className="container max-w-6xl mx-auto md:flex items-start py-8 md:px-0">
           <Articles data={posts} />
           <CategoriesWidget data={categories} />
@@ -52,24 +51,18 @@ const Blog = ({ doc, posts, categories }: Props) => {
 
 export const getStaticProps: GetStaticProps = async ({
   params,
-  preview = null,
   previewData = {},
 }) => {
   const { ref } = previewData || {};
 
   const client = Client();
   const doc = (await client.getSingle("homepage", ref ? { ref } : null)) || {};
-  const posts = await (
-    await fetch(`https://5f7c244700bd74001690a4a7.mockapi.io/posts?category=${params.category}`)
-  ).json();
-  const categories = await (
-    await fetch("https://5f7c244700bd74001690a4a7.mockapi.io/categories")
-  ).json();
+  const posts = await API.fetchPostsByCategory(params.category) || []
+  const categories = await API.fetchAllCategories() || []
 
   return {
     props: {
       doc,
-      preview,
       posts,
       categories,
     },
@@ -77,15 +70,12 @@ export const getStaticProps: GetStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const categories = await (
-    await fetch("https://5f7c244700bd74001690a4a7.mockapi.io/categories")
-  ).json();
+  const categories = await API.fetchAllCategories()
   const paths = categories.map((item) => ({
     params: {
       category: item.name,
     },
   }));
-console.log(paths);
 
   return {
     paths,

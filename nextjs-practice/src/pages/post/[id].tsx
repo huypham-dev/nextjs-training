@@ -2,18 +2,26 @@ import React from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import Layout from "../../components/common/Layout";
+import Layout from "components/common/Layout";
 import { Client } from "../../../prismic-configuration";
 import Image from "next/image";
 import { RichText } from "prismic-reactjs";
+import { useRouter } from "next/router";
+import { API } from "utils/api";
 
 const BlogPost = ({ doc, post }) => {
-  const { data } = doc;
-  const { logo, footer_left_text, footer_right_text, navigation } = data;
+  const { data } = doc || {};
+  const { logo, footer_left_text, footer_right_text, navigation } = data || {};
   const prismicFooter = {
     leftText: RichText.asText(footer_left_text),
     rightText: RichText.asText(footer_right_text),
   };
+
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Layout logo={logo?.url} navigation={navigation} footerData={prismicFooter}>
@@ -53,41 +61,31 @@ const BlogPost = ({ doc, post }) => {
 
 export const getStaticProps: GetStaticProps = async ({
   params,
-  preview = null,
   previewData = {},
 }) => {
   const { ref } = previewData || {};
-
   const client = Client();
   const doc = (await client.getSingle("homepage", ref ? { ref } : null)) || {};
-  const post = await (
-    await fetch(
-      `https://5f7c244700bd74001690a4a7.mockapi.io/posts/${params.id}`
-    )
-  ).json();
 
-  return {
-    props: {
-      doc,
-      preview,
-      post,
-    },
-  };
+  try {
+    const post = (await API.fetchPostItem(params.id)) || {};
+
+    return {
+      props: {
+        doc,
+        post,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return { notFound: true };
+  }
 };
 
 export async function getStaticPaths() {
-  const posts = await (
-    await fetch("https://5f7c244700bd74001690a4a7.mockapi.io/posts")
-  ).json();
-  const paths = posts.map((post) => ({
-    params: {
-      id: post.id,
-    },
-  }));
-
   return {
-    paths,
-    fallback: false, // 404 page if any paths not returned
+    paths: [],
+    fallback: true,
   };
 }
 

@@ -1,7 +1,8 @@
 import React from "react";
+
 import Link from "next/link";
 import Image from "next/image";
-import { PostType } from "../../models";
+import { PostType } from "models";
 
 type Props = {
   article: PostType;
@@ -27,9 +28,11 @@ const Article = ({ article }: Props) => {
         </h2>
 
         <div className="mb-4 text-sm text-gray-700">
-          <a href="#" className="text-gray-700 font-bold hover:text-gray-400">
-            {article.category.toUpperCase()}
-          </a>
+          <Link href={`/posts/${article.category}`}>
+            <a className="text-gray-700 font-bold hover:text-gray-400">
+              {article.category.toUpperCase()}
+            </a>
+          </Link>
         </div>
 
         <p className="text-gray-800 leading-normal">

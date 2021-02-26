@@ -1,15 +1,9 @@
-import React, { memo } from "react";
+import React, { memo } from "react"; 
 import Image from "next/image";
-
-type IntroduceDataType = {
-  heading: string;
-  intro: string;
-  desc: string;
-  image: string;
-};
+import { IntroduceType } from "models";
 
 type Props = {
-  data: IntroduceDataType;
+  data: IntroduceType;
 };
 
 const Introduce = ({ data }: Props) => {

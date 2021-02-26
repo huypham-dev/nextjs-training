@@ -1,15 +1,16 @@
 import React from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
-import { NavigationType } from "../../models";
+import { NavigationType } from "models";
 
 type Props = {
   logo: string;
   navigation: NavigationType[];
 };
 
-const Header = ({ navigation, logo }: Props) => {
+const Header = ({ navigation = [], logo }: Props) => {
   return (
     <header className="mx-auto max-w-xl py-10 text-center">
       <Link href="/">

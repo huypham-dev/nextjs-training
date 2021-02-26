@@ -1,5 +1,5 @@
 import React from "react";
-import { PostType } from "../../models";
+import { PostType } from "models";
 import Article from "./Article";
 
 type Props = {

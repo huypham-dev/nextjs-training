@@ -1,6 +1,7 @@
-import Link from "next/link";
 import React from "react";
-import { CategoryType } from "../../models";
+
+import Link from "next/link";
+import { CategoryType } from "models";
 
 type Props = {
   data: CategoryType[];

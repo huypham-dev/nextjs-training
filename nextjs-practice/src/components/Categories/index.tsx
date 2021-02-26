@@ -1,6 +1,7 @@
 import React from "react";
-import { CategoryType, CategoryHeadType } from "../../models";
-import CategoryItem from "./Item";
+
+import { CategoryType, CategoryHeadType } from "models";
+import CategoryItem from "./Item"
 
 type Props = {
   data: CategoryType[];

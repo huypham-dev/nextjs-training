@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterDataType, NavigationType } from "../../models";
+import { FooterDataType, NavigationType } from "models";
 import Footer from "./Footer";
 import Header from "./Header";
 

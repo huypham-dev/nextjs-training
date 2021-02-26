@@ -5,10 +5,11 @@ import Categories from "../components/Categories";
 import Introduce from "../components/Introduce";
 import Layout from "../components/common/Layout";
 import { RichText } from "prismic-reactjs";
+import LoginForm from "./contact";
+import { API } from "utils/api";
 
 export default function Home({ doc, categories }) {
-  console.log(doc);
-  const { data } = doc;
+  const { data } = doc || {};
   const {
     info_heading,
     info_image,
@@ -56,9 +57,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const client = Client();
   const doc = (await client.getSingle("homepage", ref ? { ref } : null)) || {};
-  const categories = await (
-    await fetch("https://5f7c244700bd74001690a4a7.mockapi.io/categories")
-  ).json();
+  const categories = await API.fetchAllCategories() || []
 
   return {
     props: {
