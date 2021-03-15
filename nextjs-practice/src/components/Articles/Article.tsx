@@ -1,46 +1,39 @@
-import React from "react";
+import { memo } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { PostType } from "models";
+import { PostType } from "types";
+import isEqual from "react-fast-compare";
 
 type Props = {
   article: PostType;
 };
 
 const Article = ({ article }: Props) => {
+  const { id, image, title, category, content } = article;
+
   return (
-    <article className="mb-12">
-      <div className="float-left">
-        <Link href={`/post/${article.id}`}>
-          <a>
-            <Image src={article.image} width={250} height={150} />
+    <article className="max-w-md mx-auto rounded-md shadow-md overflow-hidden md:max-w-2xl mb-12">
+      <div className="md:flex">
+        <Link href={`/post/${id}`}>
+          <a className="flex flex-shrink-0 justify-center md:items-center">
+            <Image src={image} alt="article image" width={250} height={150} />
           </a>
         </Link>
-      </div>
-      <div className="ml-72">
-        <h2 className="mb-4">
-          <Link href={`/post/${article.id}`}>
-            <a className="text-black text-xl md:text-2xl no-underline hover:opacity-70 font-bold">
-              {article.title}
+        <div className="p-8">
+          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+            {category}
+          </div>
+          <Link href={`/post/${id}`}>
+            <a className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
+              {title}
             </a>
           </Link>
-        </h2>
-
-        <div className="mb-4 text-sm text-gray-700">
-          <Link href={`/posts/${article.category}`}>
-            <a className="text-gray-700 font-bold hover:text-gray-400">
-              {article.category.toUpperCase()}
-            </a>
-          </Link>
+          <p className="mt-2 text-gray-500">{content.substring(0, 100)}...</p>
         </div>
-
-        <p className="text-gray-800 leading-normal">
-          {article.content.substring(0, 100)}...
-        </p>
       </div>
     </article>
   );
 };
 
-export default Article;
+export default memo(Article, isEqual);

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesWidget Snapshot 1`] = `
+<div
+  className="w-full md:w-64"
+>
+  <aside
+    className="rounded shadow overflow-hidden"
+  >
+    <h3
+      className="text-sm bg-gray-100 text-gray-700 py-3 px-4 border-b"
+    >
+      Categories
+    </h3>
+    <div
+      className="p-4"
+    >
+      <ul
+        className="list-reset leading-normal"
+      />
+    </div>
+  </aside>
+</div>
+`;

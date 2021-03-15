@@ -1,20 +1,16 @@
-import React from "react";
-import { FooterDataType, NavigationType } from "models";
+import { navigations } from "constants/mockdata";
 import Footer from "./Footer";
 import Header from "./Header";
 
 type Props = {
-  children: any
-  logo: string
-  navigation: NavigationType[]
-  footerData: FooterDataType
-}
+  children: React.ReactNode;
+};
 
-const Layout = ({ children, logo, navigation, footerData }: Props) => (
-  <div className="bg-gray-200 font-sans font-thin px-6 bg-fixed bg-cover bg-no-repeat">
-    <Header logo={logo} navigation={navigation} />
+const Layout = ({ children }: Props): JSX.Element => (
+  <div className="font-sans font-thin">
+    <Header navigations={navigations} />
     {children}
-    <Footer data={footerData} />
+    <Footer />
   </div>
 );
 

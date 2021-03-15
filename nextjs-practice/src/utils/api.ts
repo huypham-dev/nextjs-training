@@ -5,46 +5,56 @@ export const COLLECTION = {
 };
 
 export const API = {
-  fetchAllCategories: () => {
-    return fetch(`${BASE_URL}${COLLECTION.CATEGORIES}`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Something went wrong");
-        }
-      })
-      .then((responseJson) => responseJson)
-      .catch((error) => {
-        console.log(error);
-      });
+  fetchAllCategories: async () => {
+    const res = await fetch(`${BASE_URL}${COLLECTION.CATEGORIES}`);
+
+    return res.ok
+      ? await res.json()
+      : {
+          errorCode: res.status,
+          message: res.statusText,
+        };
   },
-  fetchPostsByCategory: (categoryId) => {
-    return fetch(`${BASE_URL}${COLLECTION.POSTS}?category=${categoryId}`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Something went wrong");
-        }
-      })
-      .then((responseJson) => responseJson)
-      .catch((error) => {
-        console.log(error);
-      });
+  fetchPostsByCategory: async (categoryId) => {
+    const res = await fetch(
+      `${BASE_URL}${COLLECTION.POSTS}?category=${categoryId}`
+    );
+
+    return res.ok
+      ? await res.json()
+      : {
+          errorCode: res.status,
+          message: res.statusText,
+        };
   },
-  fetchPostItem: (id) => {
-    return fetch(`${BASE_URL}${COLLECTION.POSTS}/${id}`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Something went wrong"); 
-        }
-      })
-      .then((responseJson) => responseJson)
-      .catch((error) => {
-        console.log(error);
-      });
+  fetchAllPost: async () => {
+    const res = await fetch(`${BASE_URL}${COLLECTION.POSTS}`);
+    return res.ok
+      ? await res.json()
+      : {
+          errorCode: res.status,
+          message: res.statusText,
+        };
+  },
+  fetchPostItem: async (id) => {
+    const res = await fetch(`${BASE_URL}${COLLECTION.POSTS}/${id}`);
+    return res.ok
+      ? await res.json()
+      : {
+          errorCode: res.status,
+          message: res.statusText,
+        };
+  },
+
+  fetchFeaturedPosts: async () => {
+    const res = await fetch(
+      `${BASE_URL}${COLLECTION.POSTS}?sortBy=view&order=desc&p=1&l=6`
+    );
+    return res.ok
+      ? await res.json()
+      : {
+          errorCode: res.status,
+          message: res.statusText,
+        };
   },
 };

@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NEXT.JS PRACTICE - BLOG
 
-## Getting Started
+# PROJECT SCOPE
 
-First, run the development server:
+- User can see Home page
+- User can see list post from Blog page
+- User can see list post by category from Blog page
+- User can see Contact page
+
+# TIMELINE
+
+- 6 days
+
+# TEAM SIZE
+
+- 1 dev
+
+# TECH STACKS
+
+- React: A JavaScript library for building user interfaces
+- Next.js: Production grade React applications that scale. The world's leading companies use Next.js by Vercel to build static and dynamic websites and web applications.
+- Typescript: open-source language which builds on JavaScript, one of the world's most used tools, by adding static type definitions. Types provide a way to describe the shape of an object, providing better documentation, and allowing TypeScript to validate that your code is working correctly.
+- [MockApi](mockapi.io): MockAPI is a simple tool that lets you easily mock up APIs, generate custom data, and preform operations on it using RESTful interface. MockAPI is meant to be used as a prototyping/testing/learning tool.
+- TailwindCSS: Rapidly build modern websites without ever leaving your HTML
+
+# Getting Started
+
+## Installing
+
+Guide to introduce how to installing and build app up:
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone git@gitlab.asoft-python.com:g-huypham/nextjs-training.git
+$ git checkout feature/nextjs-practice
+$ cd nextjs-practice
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installing and runing app
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Install packages: `yarn`
+- Run app: `yarn dev`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Deployment
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Run command: `yarn build` to generate build folder
 
-## Learn More
+### Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Huy Pham

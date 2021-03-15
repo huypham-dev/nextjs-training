@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Detail page Snapshot 1`] = `
+<Fragment>
+  <Head>
+    <title>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    </title>
+  </Head>
+  <div
+    className="mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl mb-24"
+  >
+    <p>
+      By 
+      <b>
+        author 1
+      </b>
+       |
+       
+      <Link
+        href="/blog/internet"
+      >
+        <a
+          className="hover:text-red-400"
+        >
+          <b>
+            internet
+          </b>
+        </a>
+      </Link>
+    </p>
+    <p
+      className="mb-10"
+    >
+      Created: 
+      2021-03-01
+    </p>
+    <div
+      className="bg-white-half w-full"
+    >
+      <div
+        className="max-w-3xl mx-auto text-center flex flex-col items-center"
+      >
+        <h1
+          className="text-5xl font-bold font-serif text-primary tracking-wide"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit
+        </h1>
+        <div
+          className="w-full my-10"
+        >
+          <Image
+            alt="article image"
+            height={400}
+            src="https://genk.mediacdn.vn/139269124445442048/2021/3/2/photo-1-16146533712881100681556.jpg"
+            width={700}
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="max-w-3xl mx-auto text-center p-6 flex flex-col items-center"
+    >
+      <div
+        className="leading-relaxed text-xl text-left text-gray-800 drop-cap"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.1
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

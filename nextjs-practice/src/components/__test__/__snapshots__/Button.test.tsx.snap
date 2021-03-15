@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Snapshot 1`] = `
+<button
+  className=""
+  disabled={false}
+  onClick={[MockFunction]}
+>
+  Click
+</button>
+`;

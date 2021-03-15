@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Snapshot 1`] = `
+<div
+  className="font-sans font-thin"
+>
+  <Memo(Header)
+    navigations={
+      Array [
+        Object {
+          "label": "Home",
+          "path": "/",
+        },
+        Object {
+          "label": "Blog",
+          "path": "/blog",
+        },
+        Object {
+          "label": "Contact",
+          "path": "/contact",
+        },
+      ]
+    }
+  />
+  <div>
+    Children
+  </div>
+  <Memo(Footer) />
+</div>
+`;

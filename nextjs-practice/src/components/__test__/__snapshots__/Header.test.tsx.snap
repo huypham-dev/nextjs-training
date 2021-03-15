@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Snapshot 1`] = `
+<header
+  className="w-full mx-auto text-center"
+>
+  <Link
+    href="/"
+  >
+    <a
+      className="inline-block text-2xl mb-12"
+    >
+      <Image
+        alt="logo"
+        height={150}
+        src="https://images.prismic.io/nextjsexample/ebd683dd-af14-49e3-bef5-5c497c9b8cac_logo.png"
+        width={150}
+      />
+    </a>
+  </Link>
+  <ul
+    className="flex justify-center b p-5 uppercase text-xs border-t border-b bg-gray-100"
+  >
+    <li
+      key="Home"
+    >
+      <Link
+        href="/"
+      >
+        <a
+          className="text-gray-600 font-bold text-sm py-2 px-4 mx-2 hover:text-black"
+        >
+          Home
+        </a>
+      </Link>
+    </li>
+    <li
+      key="Blog"
+    >
+      <Link
+        href="/blog"
+      >
+        <a
+          className="text-gray-600 font-bold text-sm py-2 px-4 mx-2 hover:text-black"
+        >
+          Blog
+        </a>
+      </Link>
+    </li>
+    <li
+      key="Contact"
+    >
+      <Link
+        href="/contact"
+      >
+        <a
+          className="text-gray-600 font-bold text-sm py-2 px-4 mx-2 hover:text-black"
+        >
+          Contact
+        </a>
+      </Link>
+    </li>
+  </ul>
+</header>
+`;

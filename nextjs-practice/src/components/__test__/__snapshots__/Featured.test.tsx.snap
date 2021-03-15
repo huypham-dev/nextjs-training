@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Featured Snapshot 1`] = `
+<div
+  className="mx-auto max-w-6xl bg-white shadow-xl mb-10"
+>
+  <div
+    className="max-w-5xl mx-auto pt-10 p-8 flex"
+  >
+    <h3
+      className="font-extrabold text-5xl md:text-6xl italic leading-none max-w-xl"
+    >
+      Featured Posts
+    </h3>
+  </div>
+  <div
+    className="container mx-auto flex flex-wrap pb-20 px-10"
+  >
+    <Memo(Post)
+      key="1"
+      post={
+        Object {
+          "author": "author 1",
+          "category": "internet",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.1",
+          "createdAt": "2021-03-01T12:59:16.855Z",
+          "id": "1",
+          "image": "https://genk.mediacdn.vn/139269124445442048/2021/3/2/photo-1-16146533712881100681556.jpg",
+          "slug": "slug 1",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+          "view": 90,
+        }
+      }
+    />
+    <Memo(Post)
+      key="2"
+      post={
+        Object {
+          "author": "author 1",
+          "category": "internet",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.1",
+          "createdAt": "2021-03-01T12:59:16.855Z",
+          "id": "2",
+          "image": "https://genk.mediacdn.vn/139269124445442048/2021/3/2/photo-1-16146533712881100681556.jpg",
+          "slug": "slug 1",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+          "view": 90,
+        }
+      }
+    />
+  </div>
+</div>
+`;

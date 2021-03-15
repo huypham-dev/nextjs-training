@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Snapshot 1`] = `
+<div
+  className="w-full md:w-1/2 lg:w-1/3 px-6 p-5"
+>
+  <div
+    className="bg- p-4 rounded-md shadow-xl border-gray-200 border-2"
+  >
+    <h3
+      className="text-md font-extrabold tracking-widest mb-2"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    </h3>
+    <div
+      className="w-full text-center"
+    >
+      <Image
+        alt="article image"
+        className="rounded-lg"
+        height={150}
+        layout="responsive"
+        src="https://genk.mediacdn.vn/139269124445442048/2021/3/2/photo-1-16146533712881100681556.jpg"
+        width={250}
+      />
+    </div>
+    <p
+      className="text-xs text-gray-500 mb-4"
+    >
+      90
+       
+      <i>
+        views
+      </i>
+    </p>
+    <Link
+      href="/post/1"
+    >
+      <a
+        className="inline-block border-2 border-black py-3 px-8 uppercase font-display font-thin tracking-wide text-xs hover:bg-yellow-400 hover:border-yellow-400"
+      >
+        Read more
+      </a>
+    </Link>
+  </div>
+</div>
+`;
