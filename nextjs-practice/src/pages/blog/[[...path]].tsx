@@ -57,6 +57,7 @@ export const getStaticProps: GetStaticProps = async ({
       posts: result.errorCode ? [] : result,
       error: result,
     },
+    revalidate: 120,
   };
 };
 
@@ -79,7 +80,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     ],
     fallback: categories.errorCode ? true : false,
-    revalidate: 120
   };
 };
 
