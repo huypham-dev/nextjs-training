@@ -79,6 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     ],
     fallback: categories.errorCode ? true : false,
+    revalidate: 120
   };
 };
 
