@@ -1,18 +1,18 @@
-import { mockArticles } from "constants/mockdata";
 import { mount, shallow } from "enzyme";
 import Link from "next/link";
 import Image from "next/image";
 import Post from "../Featured/Post";
+import { ARTICLES } from "constants/mockData";
 
 describe("Post", () => {
   it("Snapshot", () => {
-    const component = shallow(<Post post={mockArticles[0]} />);
+    const component = shallow(<Post post={ARTICLES[0]} />);
 
     expect(component).toMatchSnapshot();
   });
 
   it("Render component correctly with props", () => {
-    const component = mount(<Post post={mockArticles[0]} />);
+    const component = mount(<Post post={ARTICLES[0]} />);
     expect(component.find("p").text()).toBe("90 views");
     expect(component.find(Link).length).toBe(1);
     expect(component.find(Link).prop("href")).toBe("/post/1");

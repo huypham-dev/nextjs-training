@@ -1,10 +1,4 @@
-export const navigations = [
-  { label: "Home", path: "/" },
-  { label: "Blog", path: "/blog" },
-  { label: "Contact", path: "/contact" },
-];
-
-export const mockCategories = [
+export const CATEGORIES = [
   {
     id: "1",
     name: "mobile",
@@ -19,7 +13,7 @@ export const mockCategories = [
   },
 ];
 
-export const mockArticles = [
+export const ARTICLES = [
   {
     id: "1",
     createdAt: "2021-03-01T12:59:16.855Z",

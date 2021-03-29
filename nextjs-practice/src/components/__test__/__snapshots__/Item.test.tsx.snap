@@ -4,24 +4,21 @@ exports[`CategoryItem Snapshot 1`] = `
 <div
   className="w-full md:w-1/2 lg:w-1/3 px-6 p-2"
 >
-  <Link
+  <Memo(LinkBase)
+    className="block mb-8 text-center hover:opacity-70"
     href="/blog/mobile"
   >
-    <a
-      className="block mb-8 text-center hover:opacity-70"
-    >
-      <Image
-        alt="mobile"
-        height={100}
-        src="/image.jpg"
-        width={100}
-      />
-    </a>
-  </Link>
-  <p
+    <Image
+      alt="mobile"
+      height={100}
+      src="/image.jpg"
+      width={100}
+    />
+  </Memo(LinkBase)>
+  <Memo(Typography)
     className="text-xl text-center"
   >
     MOBILE
-  </p>
+  </Memo(Typography)>
 </div>
 `;

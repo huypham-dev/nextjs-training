@@ -10,29 +10,27 @@ exports[`Intro Snapshot 1`] = `
     <div
       className="flex-1"
     >
-      <h1
+      <Memo(Typography)
         className="font-display-italic font-extrabold text-5xl md:text-6xl italic leading-none mb-12"
+        variant="h2"
       >
         Introducing
-      </h1>
-      <p
+      </Memo(Typography)>
+      <Memo(Typography)
         className="leading-loose max-w-xl"
       >
         Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book
-      </p>
+      </Memo(Typography)>
     </div>
     <div
       className="hidden md:block w-56"
     >
-      <Link
+      <Memo(LinkBase)
+        className="ml-12 bg-yellow-400 py-6 px-10 hover:opacity-70"
         href="/about"
       >
-        <a
-          className="ml-12 bg-yellow-400 py-6 px-10 hover:opacity-70"
-        >
-          Learn more
-        </a>
-      </Link>
+        Learn more
+      </Memo(LinkBase)>
     </div>
   </div>
   <div

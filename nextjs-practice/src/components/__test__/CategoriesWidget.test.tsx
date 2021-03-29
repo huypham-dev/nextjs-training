@@ -1,6 +1,6 @@
 import { mount, shallow } from "enzyme";
+import { CATEGORIES } from "constants/mockData";
 import CategoriesWidget from "../CategoriesWidget";
-import { mockCategories } from "constants/mockdata";
 
 describe("CategoriesWidget", () => {
   it("Snapshot", () => {
@@ -9,7 +9,7 @@ describe("CategoriesWidget", () => {
   });
 
   it("Render component correctly with props", () => {
-    const component = mount(<CategoriesWidget data={mockCategories} />);
+    const component = mount(<CategoriesWidget data={CATEGORIES} />);
     const links = component.find("a");
 
     expect(component.find("h3").text()).toBe("Categories");

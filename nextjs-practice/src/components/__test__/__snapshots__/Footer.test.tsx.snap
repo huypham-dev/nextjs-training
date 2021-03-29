@@ -2,7 +2,7 @@
 
 exports[`Footer Snapshot 1`] = `
 <footer
-  className="w-full bg-white px-6 border-t"
+  className="w-full bg-black px-6 border-t text-white"
 >
   <div
     className="container mx-auto max-w-4xl py-6 flex flex-wrap md:flex-no-wrap justify-between items-center text-sm"
@@ -11,33 +11,24 @@ exports[`Footer Snapshot 1`] = `
     <div
       className="pt-4 md:p-0 text-center md:text-right text-xs"
     >
-      <Link
+      <Memo(LinkBase)
+        className="no-underline hover:underline"
         href="/policy"
       >
-        <a
-          className="text-black no-underline hover:underline"
-        >
-          Privacy Policy
-        </a>
-      </Link>
-      <Link
+        Privacy Policy
+      </Memo(LinkBase)>
+      <Memo(LinkBase)
+        className="no-underline hover:underline ml-4"
         href="/condition"
       >
-        <a
-          className="text-black no-underline hover:underline ml-4"
-        >
-          Terms & Conditions
-        </a>
-      </Link>
-      <Link
+        Terms & Conditions
+      </Memo(LinkBase)>
+      <Memo(LinkBase)
+        className="no-underline hover:underline ml-4"
         href="/contact"
       >
-        <a
-          className="text-black no-underline hover:underline ml-4"
-        >
-          Contact Us
-        </a>
-      </Link>
+        Contact Us
+      </Memo(LinkBase)>
     </div>
   </div>
 </footer>

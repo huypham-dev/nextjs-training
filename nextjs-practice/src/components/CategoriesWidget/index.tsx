@@ -1,8 +1,10 @@
 import { memo } from "react";
 
-import Link from "next/link";
 import { CategoryType } from "types";
 import isEqual from "react-fast-compare";
+import { ROUTES } from "constants/routes";
+import Typography from "components/common/Typography";
+import LinkBase from "components/Link";
 
 type Props = {
   data: CategoryType[];
@@ -11,19 +13,23 @@ type Props = {
 const CategoriesWidget = ({ data = [] }: Props) => (
   <div className="w-full md:w-64">
     <aside className="rounded shadow overflow-hidden">
-      <h3 className="text-sm bg-gray-100 text-gray-700 py-3 px-4 border-b">
+      <Typography
+        variant="h2"
+        className="text-sm bg-gray-100 text-gray-700 py-3 px-4 border-b"
+      >
         Categories
-      </h3>
+      </Typography>
 
       <div className="p-4">
         <ul className="list-reset leading-normal">
           {data.map((item) => (
             <li key={item.id}>
-              <Link href={`/blog/${item.name}`}>
-                <a className="text-gray-darkest text-sm hover:underline">
-                  {item.name.toUpperCase()}
-                </a>
-              </Link>
+              <LinkBase
+                href={ROUTES.blog.withId(item.name)}
+                className="text-gray-darkest text-sm hover:underline"
+              >
+                {item.name.toUpperCase()}
+              </LinkBase>
             </li>
           ))}
         </ul>

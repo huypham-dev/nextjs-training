@@ -1,6 +1,6 @@
 import { mount, shallow } from "enzyme";
+import { ARTICLES } from "constants/mockData";
 import Articles from "../Articles/index";
-import { mockArticles } from "constants/mockdata";
 
 describe("Articles", () => {
   it("Snapshot", () => {
@@ -10,7 +10,7 @@ describe("Articles", () => {
   });
 
   it("Render component correctly with props", () => {
-    const component = mount(<Articles data={mockArticles} />);
+    const component = mount(<Articles data={ARTICLES} />);
     const articleList = component.find("article");
 
     expect(articleList.length).toBe(2);

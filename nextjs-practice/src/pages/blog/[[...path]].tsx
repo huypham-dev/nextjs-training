@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 
 // Components
-import Head from "next/head";
 import CategoryTitle from "components/CategoryTitle";
 import Articles from "components/Articles";
 import CategoriesWidget from "components/CategoriesWidget";
@@ -10,6 +9,7 @@ import { CategoryType, PostType } from "types";
 import { API } from "utils/api";
 import Indicator from "components/Indicator";
 import { capitalizeFirstLetter } from "utils/format";
+import Layout from "components/common/Layout";
 
 type Props = {
   posts: PostType[];
@@ -26,38 +26,38 @@ const Blog: NextPage<Props> = ({ posts = [], categories = [] }: Props) => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl bg-white py-4 px-12 shadow-xl mb-24">
-      <Head>
-        <title> {capitalizeFirstLetter(title)} | Blog</title>
-      </Head>
-      <CategoryTitle category={title} />
-      <div className="container max-w-6xl mx-auto md:flex items-start py-8 md:px-0">
-        <Articles data={posts} />
-        <CategoriesWidget data={categories} />
+    <Layout title={capitalizeFirstLetter(title)}>
+      <div className="mx-auto max-w-6xl bg-white py-4 px-12 shadow-xl mb-24">
+        <CategoryTitle category={title} />
+        <div className="container max-w-6xl mx-auto md:flex items-start py-8 md:px-0">
+          <Articles data={posts} />
+          <CategoriesWidget data={categories} />
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async ({
   params = { path: null },
 }) => {
-  let result;
+  let postResponse;
 
   if (params.path && params.path.length) {
-    result = await API.fetchPostsByCategory(params.path[0]);
+    postResponse = await API.fetchPostsByCategory(params.path[0]);
   } else {
-    result = await API.fetchAllPost();
+    postResponse = await API.fetchAllPost();
   }
-  const categories = (await API.fetchAllCategories()) || [];
+  const categoriesResponse = (await API.fetchAllCategories()) || [];
+  const postsErrorCode = postResponse.errorCode;
+  const categoriesErrorCode = categoriesResponse.errorCode;
 
   return {
     props: {
-      categories: categories.errorCode ? [] : categories,
-      posts: result.errorCode ? [] : result,
-      error: result,
+      categories: categoriesErrorCode ? [] : categoriesResponse,
+      posts: postsErrorCode ? [] : postResponse,
+      error: postResponse,
     },
-    revalidate: 1,
   };
 };
 

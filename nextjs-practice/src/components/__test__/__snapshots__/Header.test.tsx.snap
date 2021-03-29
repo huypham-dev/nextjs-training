@@ -2,64 +2,57 @@
 
 exports[`Header Snapshot 1`] = `
 <header
-  className="w-full mx-auto text-center"
+  className="bg-black text-white font-bold mb-12"
 >
-  <Link
-    href="/"
+  <div
+    className="p-6 container mx-auto flex flex-wrap items-center justify-between"
   >
-    <a
-      className="inline-block text-2xl mb-12"
+    <Memo(LinkBase)
+      className="mb-6 md:mb-0 w-full text-center md:text-left md:w-auto font-display font-black text-3xl uppercase"
+      href="/"
     >
-      <Image
-        alt="logo"
-        height={150}
-        src="https://images.prismic.io/nextjsexample/ebd683dd-af14-49e3-bef5-5c497c9b8cac_logo.png"
-        width={150}
-      />
-    </a>
-  </Link>
-  <ul
-    className="flex justify-center b p-5 uppercase text-xs border-t border-b bg-gray-100"
-  >
-    <li
-      key="Home"
+      Blog.
+    </Memo(LinkBase)>
+    <ul
+      className="justify-center md:justify-end flex-1 flex items-center"
     >
-      <Link
-        href="/"
+      <li
+        key="Home"
       >
-        <a
-          className="text-gray-600 font-bold text-sm py-2 px-4 mx-2 hover:text-black"
+        <Memo(LinkBase)
+          className="text-gray-50 font-bold text-sm py-2 px-4 mx-2 hover:underline"
+          href="/"
         >
           Home
-        </a>
-      </Link>
-    </li>
-    <li
-      key="Blog"
-    >
-      <Link
-        href="/blog"
+        </Memo(LinkBase)>
+      </li>
+      <li
+        key="Blog"
       >
-        <a
-          className="text-gray-600 font-bold text-sm py-2 px-4 mx-2 hover:text-black"
+        <Memo(LinkBase)
+          className="text-gray-50 font-bold text-sm py-2 px-4 mx-2 hover:underline"
+          href="/blog"
         >
           Blog
-        </a>
-      </Link>
-    </li>
-    <li
-      key="Contact"
-    >
-      <Link
-        href="/contact"
+        </Memo(LinkBase)>
+      </li>
+      <li
+        key="Contact"
       >
-        <a
-          className="text-gray-600 font-bold text-sm py-2 px-4 mx-2 hover:text-black"
+        <Memo(LinkBase)
+          className="text-gray-50 font-bold text-sm py-2 px-4 mx-2 hover:underline"
+          href="/contact"
         >
           Contact
-        </a>
-      </Link>
-    </li>
-  </ul>
+        </Memo(LinkBase)>
+      </li>
+      <li>
+        <Memo(Button)
+          className="text-gray-50 border-white border text-sm py-2 px-4 mx-2"
+          label="Login"
+        />
+      </li>
+    </ul>
+  </div>
 </header>
 `;

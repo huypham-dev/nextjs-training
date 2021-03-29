@@ -7,20 +7,17 @@ exports[`Article Snapshot 1`] = `
   <div
     className="md:flex"
   >
-    <Link
+    <Memo(LinkBase)
+      className="flex flex-shrink-0 justify-center md:items-center"
       href="/post/1"
     >
-      <a
-        className="flex flex-shrink-0 justify-center md:items-center"
-      >
-        <Image
-          alt="article image"
-          height={150}
-          src="https://genk.mediacdn.vn/139269124445442048/2021/3/2/photo-1-16146533712881100681556.jpg"
-          width={250}
-        />
-      </a>
-    </Link>
+      <Image
+        alt="article image"
+        height={150}
+        src="https://genk.mediacdn.vn/139269124445442048/2021/3/2/photo-1-16146533712881100681556.jpg"
+        width={250}
+      />
+    </Memo(LinkBase)>
     <div
       className="p-8"
     >
@@ -29,21 +26,18 @@ exports[`Article Snapshot 1`] = `
       >
         internet
       </div>
-      <Link
+      <Memo(LinkBase)
+        className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
         href="/post/1"
       >
-        <a
-          className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit
-        </a>
-      </Link>
-      <p
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+      </Memo(LinkBase)>
+      <Memo(Typography)
         className="mt-2 text-gray-500"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
         ...
-      </p>
+      </Memo(Typography)>
     </div>
   </div>
 </article>

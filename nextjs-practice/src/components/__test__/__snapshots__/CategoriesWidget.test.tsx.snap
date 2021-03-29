@@ -7,11 +7,12 @@ exports[`CategoriesWidget Snapshot 1`] = `
   <aside
     className="rounded shadow overflow-hidden"
   >
-    <h3
+    <Memo(Typography)
       className="text-sm bg-gray-100 text-gray-700 py-3 px-4 border-b"
+      variant="h2"
     >
       Categories
-    </h3>
+    </Memo(Typography)>
     <div
       className="p-4"
     >

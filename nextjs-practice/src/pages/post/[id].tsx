@@ -1,76 +1,80 @@
-import Link from "next/link";
-import Head from "next/head";
+import { memo, useState } from "react";
+import dynamic from "next/dynamic";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Image from "next/image";
-import { API } from "utils/api";
+
+// types
 import { PostType } from "types";
+
+// components
+import ArticlesByType from "components/ArticlesByType";
+import Layout from "components/common/Layout";
+import Button from "components/common/Button";
+
+// api
+import { API } from "utils/api";
+import PostDetail from "components/PostDetail";
 
 type Props = {
   post: PostType;
+  featured: PostType[];
 };
 
-const BlogPost: NextPage<Props> = ({ post }: Props) => {
-  const { title, author, category, createdAt, image, content } = post || {};
+const CommentList = dynamic(() => import("../../components/CommentList"));
+
+const BlogPost: NextPage<Props> = ({ post, featured }: Props) => {
+  const { title, comments } = post || {};
+  const [isComment, setIsComment] = useState(false);
+  const toggleComment = () => setIsComment(!isComment);
 
   return (
-    <>
-      <Head>
-        <title>{title || ""}</title>
-      </Head>
-      <div className="mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl mb-24">
-        <p>
-          By <b>{author}</b> |{" "}
-          <Link href={`/blog/${category}`}>
-            <a className="hover:text-red-400">
-              <b>{category}</b>
-            </a>
-          </Link>
-        </p>
-        <p className="mb-10">Created: {createdAt.substring(0, 10)}</p>
-        <div className="bg-white-half w-full">
-          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-            <h1 className="text-5xl font-bold font-serif text-primary tracking-wide">
-              {title}
-            </h1>
-            <div className="w-full my-10">
-              <Image src={image} alt="article image" width={700} height={400} />
-            </div>
+    <Layout title={title}>
+      <div className="mx-auto max-w-6xl bg-white px-12 lg:px-10 shadow-xl mb-24">
+        <PostDetail post={post} />
+        <div className="pb-10">
+          <Button
+            label="Show comments &darr;"
+            className="bg-blue-400 p-2 rounded-md mb-4 text-white"
+            onClick={toggleComment}
+          />
+          <div className="ml-4">
+            {isComment && <CommentList comments={comments} />}
           </div>
         </div>
-        <div className="max-w-3xl mx-auto text-center p-6 flex flex-col items-center">
-          <div className="leading-relaxed text-xl text-left text-gray-800 drop-cap">
-            {content}
-          </div>
-        </div>
+        <ArticlesByType type="Featured Post" articles={featured} />
       </div>
-    </>
+    </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const result = await API.fetchPostItem(params.id);
+  const post = await API.fetchPostItem(params.id);
+  const featured = await API.fetchFeaturedPosts();
+  const featuredErrorCode = featured.errorCode;
+  const postErrorCode = post.errorCode;
 
   return {
     props: {
-      post: result,
-      error: result,
+      featured: featuredErrorCode ? [] : featured,
+      post: postErrorCode ? {} : post,
+      error: (postErrorCode && post) || {},
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await API.fetchAllPost();
-  const paths = posts.errorCode
+  const postsResponse = await API.fetchAllPost();
+  const postsErrorCode = postsResponse.errorCode;
+  const paths = postsErrorCode
     ? []
-    : posts.map(({ id }) => ({
+    : postsResponse.map(({ id }) => ({
         params: {
           id,
         },
       }));
   return {
     paths,
-    fallback: posts.errorCode ? true : false,
+    fallback: postsErrorCode ? true : false,
   };
 };
 
-export default BlogPost;
+export default memo(BlogPost);

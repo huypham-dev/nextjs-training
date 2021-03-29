@@ -1,4 +1,4 @@
-import { navigations } from "constants/mockdata";
+import { navigations } from "constants/navigations";
 import { mount, shallow } from "enzyme";
 import Header from "../common/Header";
 

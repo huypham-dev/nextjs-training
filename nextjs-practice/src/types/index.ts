@@ -8,6 +8,7 @@ export interface PostType {
   content: string;
   slug?: string;
   view?: number;
+  comments?: Comment[];
 }
 
 export interface CategoryType {
@@ -19,4 +20,10 @@ export interface CategoryType {
 export interface NavigationItem {
   label: string;
   path: string;
+}
+
+export interface Comment {
+  id: string;
+  user: string;
+  comment: string;
 }

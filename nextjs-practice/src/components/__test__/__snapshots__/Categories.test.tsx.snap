@@ -4,11 +4,12 @@ exports[`Categories Snapshot 1`] = `
 <div
   className="mx-auto max-w-6xl bg-white py-10 px-12 lg:px-24 shadow-xl mb-6"
 >
-  <h1
+  <Memo(Typography)
     className="font-display-italic font-extrabold text-5xl md:text-6xl italic leading-none mb-12"
+    variant="h2"
   >
     Categories
-  </h1>
+  </Memo(Typography)>
   <div
     className="flex flex-wrap -mx-2"
   >

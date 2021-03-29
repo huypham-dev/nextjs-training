@@ -7,11 +7,12 @@ exports[`Post Snapshot 1`] = `
   <div
     className="bg- p-4 rounded-md shadow-xl border-gray-200 border-2"
   >
-    <h3
+    <Memo(Typography)
       className="text-md font-extrabold tracking-widest mb-2"
+      variant="h2"
     >
       Lorem ipsum dolor sit amet, consectetur adipisicing elit
-    </h3>
+    </Memo(Typography)>
     <div
       className="w-full text-center"
     >
@@ -24,7 +25,7 @@ exports[`Post Snapshot 1`] = `
         width={250}
       />
     </div>
-    <p
+    <Memo(Typography)
       className="text-xs text-gray-500 mb-4"
     >
       90
@@ -32,16 +33,13 @@ exports[`Post Snapshot 1`] = `
       <i>
         views
       </i>
-    </p>
-    <Link
+    </Memo(Typography)>
+    <Memo(LinkBase)
+      className="inline-block border-2 border-black py-3 px-8 uppercase font-display font-thin tracking-wide text-xs hover:bg-yellow-400 hover:border-yellow-400"
       href="/post/1"
     >
-      <a
-        className="inline-block border-2 border-black py-3 px-8 uppercase font-display font-thin tracking-wide text-xs hover:bg-yellow-400 hover:border-yellow-400"
-      >
-        Read more
-      </a>
-    </Link>
+      Read more
+    </Memo(LinkBase)>
   </div>
 </div>
 `;
