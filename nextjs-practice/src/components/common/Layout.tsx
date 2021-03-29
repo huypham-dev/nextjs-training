@@ -20,6 +20,7 @@ const Layout = ({ children, title }: Props): JSX.Element => {
     <div className="font-sans font-thin">
       <Head>
         <title>{title || "Blog"}</title>
+        <meta name="description" content="Blog app - build with Next.js" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header navigations={navigations} onShowForm={toggleForm} />
